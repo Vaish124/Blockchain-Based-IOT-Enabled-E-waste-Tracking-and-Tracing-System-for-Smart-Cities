@@ -9,63 +9,64 @@ import Order from "./models/order.js";
 import Product from "./models/product.js";
 import Consumerproduct from "./models/recycling.js";
 import CreateProduct from "./models/createProduct.js";
+import Certificate from "./models/certificate.js";
 
+// user signup
+app.post("/signup", async (req, res) => {
+  const { firstname, email, mobile, address, password, roll } =
+    req.body;
 
+  const newUser = new User({
+    firstname,
+    email,
+    mobile,
+    address,
+    password,
+    roll,
+  });
 
-
-
-// user signup 
-app.post('/signup', async (req, res) => {
-  const { name, address, mobile, email, password, gender, roll, } = req.body;
   try {
-      const newUser = new User({
-          name,
-          address,
-          mobile,
-          email,
-          password,
-          gender,
-          roll
-
-      })
-
-      const savedUser = await newUser.save();
-
-      res.json({
-          success: true,
-          data: savedUser,
-          message: 'successfully SignUp'
-      })
-  }
-  catch (err) {
-      res.json({
-          success: false,
-          message: err.message
-      })
-
+    const saveUser = await newUser.save();
+    return res.json({
+      data: saveUser,
+      success: true,
+      message: "successfully created signup",
+    });
+  } catch (e) {
+    return res.json({
+      message: e.message,
+    });
   }
 });
 
+app.get("/", async (req, res) => {
+  const alluser = await User.find();
+  res.json({
+    data: alluser,
+    message: "feached all user",
+  });
+});
 
 // user login
-app.post('/login', async (req, res) => {
-  const { email, password, roll,  } = req.body;
+app.post("/login", async (req, res) => {
+  const { email, password, roll } = req.body;
 
-  const user = await User.findOne({ email, password  }).select('email name roll');
+  const user = await User.findOne({ email, password }).select(
+    "email name roll"
+  );
 
   if (user == null) {
-      return res.json({
-          success: false,
-          message: "Login failed..!"
-      }
-      )
+    return res.json({
+      success: false,
+      message: "Login failed..!",
+    });
   }
+
   res.json({
-      success: true,
-      data: user,
-      message: "Login successfully..!"
-  }
-  )
+    success: true,
+    data: user,
+    message: "Login successfully..!",
+  });
 });
 
 
@@ -215,19 +216,18 @@ app.get("/orders", async (req, res) => {
   });
 });
 
-//delete ordere 
+//delete ordere
 
-
-app.delete('/orders/id', async (req, res) => {
+app.delete("/orders/_id", async (req, res) => {
   const { id } = req.params;
 
-  await Order.deleteOne({ id: id })
+  await Order.deleteOne({ id: id });
 
   res.json({
-      success: true,
-      data: {},
-      message: `succesfully deleted order ${id}`
-  })
+    success: true,
+    data: {},
+    message: `succesfully deleted order ${id}`,
+  });
 });
 
 // GET :order/user/:id
@@ -268,7 +268,13 @@ app.patch("/orders/status/:id", async (req, res) => {
 });
 
 app.post("/api/v1/consumerproducts", async (req, res) => {
-  const { name, consumerproductprice, consumerproductimg, consumerproductquantity, consumerproductDescription } = req.body;
+  const {
+    name,
+    consumerproductprice,
+    consumerproductimg,
+    consumerproductquantity,
+    consumerproductDescription,
+  } = req.body;
 
   const newProduct = new Consumerproduct({
     name,
@@ -302,7 +308,6 @@ app.get("/api/v1/consumerproducts", async (req, res) => {
     message: "all fetched successfuly",
   });
 });
-
 
 app.post("/api/v1/consumerproducts", async (req, res) => {
   const { name, price, productImg, quantity } = req.body;
@@ -374,22 +379,22 @@ app.get("/api/v1/certificates", async (req, res) => {
   }
 });
 
-app.post("/api/v1/createproduct", async(req,res)=>{
-  const {name,productImg,price,description,quantity}= req.body;
- 
+app.post("/api/v1/createproduct", async (req, res) => {
+  const { name, productImg, price, description, quantity } = req.body;
+
   const product = new CreateProduct({
-    name:name,
-    productImg:productImg,
-    price:price,
-    description:description,
-    quantity:quantity
-  })
+    name: name,
+    productImg: productImg,
+    price: price,
+    description: description,
+    quantity: quantity,
+  });
 
   try {
     const savedProduct = await product.save();
 
     res.json({
-      success:true,
+      success: true,
       data: savedProduct,
       message: "Product create successfully...",
     });
@@ -401,20 +406,20 @@ app.post("/api/v1/createproduct", async(req,res)=>{
   }
 });
 
-app.get("/api/v1/createproduct", async(req,res)=>{
-  try{
-  const allProduct = await CreateProduct.find();
-  res.json({
-    success: true,
-    data: allProduct,
-    message: "Product find successfully",
-  });
-} catch (err) {
-  return res.json({
-    success: false,
-    message: err.message,
-  });
-}
+app.get("/api/v1/createproduct", async (req, res) => {
+  try {
+    const allProduct = await CreateProduct.find();
+    res.json({
+      success: true,
+      data: allProduct,
+      message: "Product find successfully",
+    });
+  } catch (err) {
+    return res.json({
+      success: false,
+      message: err.message,
+    });
+  }
 });
 
 app.get("/api/v1/createproduct/:_id", async (req, res) => {
@@ -427,7 +432,6 @@ app.get("/api/v1/createproduct/:_id", async (req, res) => {
     message: "fetch product successfully",
   });
 });
-
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "..", "client", "build")));

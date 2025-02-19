@@ -19,15 +19,20 @@ import CertificateGenerator from './views/CertificateGenerator/CertificateGenera
 import Certificate from './views/Certificate/Certificate';
 import CreateProduct from './views/CreateProduct/CreateProduct';
  import CreateProductBuy from './views/CreateProductBuy/CreateProductBuy';
+ import HomeConsumer from './views/HomeConsumer/HomeConsumer';
+ import CreatingOrder from './views/CreatingOrder/CreatingOrder';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/home',
     element: <Home/>
+  },{
+   path:"/homeconsumer",
+   element:<HomeConsumer/>
   },
   {
-    path: '/login',
+    path: '/',
     element: <Login />
   },
   {
@@ -41,6 +46,10 @@ const router = createBrowserRouter([
   {
     path: '/retailer',
     element: <Retailer />
+  },
+  {
+    path:"/creatingOrder",
+    element:<CreatingOrder/>
   },
   {
     path: '/consumer',

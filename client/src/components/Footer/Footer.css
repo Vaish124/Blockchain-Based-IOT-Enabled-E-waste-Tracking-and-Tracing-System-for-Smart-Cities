@@ -1,38 +1,65 @@
-.footer-container{
-    background-color: #00baf2;
+/* Footer styling */
+.footer {
+    background-color: #00baf2; /* Set background color to #00baf2 */
     color: white;
-    padding:30px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;   
-    justify-content: space-around;
-    align-items: center;
-    height: 30px;
-    margin-top: 30px;
-    border-bottom: 2px solid #002970;
-}
-
-
-.text-footer{
+    padding: 50px 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .footer-content {
+    display: flex;
+    gap: 150px;
     font-size: 20px;
-}
-
-.footer-hyper-link{
-   text-decoration: none;
-   color: white;
-}
-
-
-@media screen and (max-width:900px){
-    .footer-container{
-        flex-direction: column;
-        border-bottom: 3px solid #002970;
-        min-height: 50px;
-        position: relative;
-
+  }
+  
+  .footer-section {
+    flex: 1;
+    margin-bottom: 20px;
+  }
+  
+  .footer-section h2,
+  .footer-section h3 {
+    font-size: 25px;
+    margin-bottom: 15px;
+    color:black
+  }
+  
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-section ul li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-section ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .footer-section p {
+    color: white;
+    margin-bottom: 10px;
+  }
+  
+  .last-section{
+    margin-left: 0;
+  }
+  /* Responsive styles */
+  @media screen and (max-width: 768px) {
+    .footer-content {
+      flex-direction: column;
     }
-    .footer-text{
-        font-size: 15px;
+  
+    .footer-section {
+      flex: none;
+      width: 100%;
     }
-}
-    
+  }
+  

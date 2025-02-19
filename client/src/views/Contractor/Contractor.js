@@ -7,50 +7,44 @@ import { Link } from 'react-router-dom';
 
 function Contractor() {
   return (
- 
-        <>
-        <Navbar />
-        <div className='container'>
+    <>
+      <Navbar />
+      <div className='container'>
         <div className="contractor-card">
-          <img src={profilePic} className="product-image" alt="Profile" /> 
-          <h3 className='contractor-name'>Ram Patil</h3>
+          <img src={profilePic} className="product-image" alt="Profile" />
+          <h3 className='contractor-name'>Vaishnavi Bhusare</h3>
           <p className='area-name'>Hadpsar Lene No:3</p>
-          <p>  <a href='tel' className='text-none' >📞 45415121512</a></p>
-          <button className='contact-now'><Link to="/contactcard" className='text-none'>Send Us Message</Link></button>
+          <p> <a href='tel' className='text-none' >📞 7499297094</a></p>
+          <Link to="/contactcard" className='contact-now'>Send Us Message</Link>
         </div>
 
         <div className="contractor-card">
-          <img src={profilePic} className="product-image" alt="Profile" /> 
-          <h3 className='contractor-name'>Shubham Pund</h3>
-          <p className='area-name'>Shivaji Nagar</p>
-          <p>  <a href='tel' className='text-none' >📞 45415121512</a></p>
-          <button className='contact-now'><Link to="/contactcard" className='text-none'>Send Us Message</Link></button>
+          <img src={profilePic} className="product-image" alt="Profile" />
+          <h3 className='contractor-name'>Vaishnavi Shirsath</h3>
+          <p className='area-name'> Nagar</p>
+          <p> <a href='tel' className='text-none' >📞 7058908359</a></p>
+          <Link to="/contactcard" className='contact-now'>Send Us Message</Link>
         </div>
 
         <div className="contractor-card">
-          <img src={profilePic} className="product-image" alt="Profile" /> 
-          <h3 className='contractor-name'>Anand Gund</h3>
+          <img src={profilePic} className="product-image" alt="Profile" />
+          <h3 className='contractor-name'>Pratiksha Vikhe</h3>
           <p className='area-name'>Shewalewadi Nandini Dreams</p>
-          <p>  <a href='tel' className='text-none' >📞 45415121512</a></p>
-          <button className='contact-now'><Link to="/contactcard" className='text-none'>Send Us Message</Link></button>
+          <p> <a href='tel' className='text-none' >📞 7020657630</a></p>
+          <Link to="/contactcard" className='contact-now'>Send Us Message</Link>
         </div>
 
         <div className="contractor-card">
-          <img src={profilePic} className="product-image" alt="Profile" /> 
-          <h3 className='contractor-name'>vivek Patil</h3>
-          <p className='area-name'>pimpri chinchwad</p>
-          <p>  <a href='tel' className='text-none' >📞 45415121512</a></p>
-          <button className='contact-now'><Link to="/contactcard" className='text-none'>Send Us Message</Link></button>
+          <img src={profilePic} className="product-image" alt="Profile" />
+          <h3 className='contractor-name'>Vaishnavi Raut</h3>
+          <p className='area-name'>Pimpri Chinchwad</p>
+          <p> <a href='tel' className='text-none' >📞 9579776784</a></p>
+          <Link to="/contactcard" className='contact-now'>Send Us Message</Link>
         </div>
-
-       
-                  
-        </div>
-        <Footer />
-        
-        </>
-    
+      </div>
+      <Footer />
+    </>
   )
 }
 
-export default Contractor
+export default Contractor;

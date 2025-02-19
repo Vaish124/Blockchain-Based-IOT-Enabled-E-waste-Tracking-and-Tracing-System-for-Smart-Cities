@@ -1,3 +1,5 @@
+/* Original styles */
+
 .waste-collection-center {
     margin-top: 50px;
     background-color: #f0f0f0;
@@ -59,22 +61,63 @@
     margin-left: 50px;
     margin-top: 100px;
 }
-.google-map{  
+
+.google-map {  
     margin-top: 30px; 
     display: flex;
-    gap:80px;
+    gap: 80px;
 }
-.contact-map{
+
+.contact-map {
     height: 400px;
     width: 60rem;
     border-radius: 10px;
     box-shadow: 0 0 10px 1px;
 }
-.contact-card-container{
+
+.contact-card-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 10px;
     margin-top: 150px;
     color: black;
+    margin-bottom: 30px; /* Add margin bottom for gap */
+}
+
+/* Media query for small devices */
+@media screen and (max-width: 768px) {
+    .waste-collection-center {
+        margin-top: 30px;
+        padding: 10px;
+    }
+
+    .waste-collection-center h1 {
+        font-size: 20px;
+    }
+
+    .waste-collection-center p {
+        font-size: 14px;
+    }
+
+    .search-bar {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .location-card {
+        margin-left: 0;
+        margin-top: 50px;
+    }
+
+    .google-map {
+        margin-top: 20px;
+        gap: 20px;
+    }
+
+    .contact-card-container {
+        margin-top: 50px;
+        margin-bottom: 20px; /* Adjust margin bottom for smaller devices */
+        justify-content: center; /* Center content horizontally */
+    }
 }

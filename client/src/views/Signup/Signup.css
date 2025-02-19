@@ -1,99 +1,40 @@
-.signup-form{
- 
-  background-color: #fff;
-  margin: 30px auto;
-  padding: 70px 50px;
-  border-radius: 10px;
-  margin-bottom: 30px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
-}
 
-.gender {
-  margin-left: 20px;
-}
-
-.signup-btn {
-  display: block;
-  margin: 10px auto;
-  width: 150px;
-}
-/* Style the dropdown button */
-.dropbtn {
-  background-color: #3498db;
-  color: white;
-  padding: 10px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-
-.dropdown-content a:hover {
-  background-color: #f1f1f1;
-}
-
-
-
-
-.text-center {
-  text-align: center;
-}
-.signup-form{
-  height: 800px;
-  margin: 40px auto; 
- padding: 20px 15px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px 0px gray;
-}
 .form-control {
   /* display: block; */
-    font-size: 16px;
-    padding: 10px 10px;
-    /* margin: 20px 40px; */
-    width: 350px;
-    border-radius:5px ;
-    border: none;
-    box-shadow: 0px 0px 5px 0px gray;
+  font-size: 16px;
+  padding: 50px 10px;
+  /* margin: 20px 40px; */
+  width: 350px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0px 0px 5px 0px gray;
 }
-
-.btn {
+.btn-signup {
   width: 180px;
   display: block;
-  margin: 20px ;
   font-size: 16px;
   /* padding: 8px 10px; */
-  border-radius:5px ;
-  background-color: black;
+  border-radius: 5px;
+  background-color: rgb(58, 107, 181);
   color: white;
   font-weight: bold;
   font-size: 20px;
+  align-items: center;
+  margin-left: 100px;
+  padding: 10px;
 }
 .link {
- text-decoration: none;
- margin-left: 45%;
- margin-bottom: 20px;
- padding-bottom: 20px;
- /* text-align: center; */
- font-size: 18px;
+  text-decoration: none;
+  margin-left: 45%;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  /* text-align: center; */
+  font-size: 18px;
 }
-.roll{
+.roll {
   margin-bottom: 5px;
 }
 
+.footer{
+  margin-top: 200px;
+}

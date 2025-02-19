@@ -33,7 +33,8 @@ function Certificate() {
           <div className="certificate-card">
             <div className="border-style">
               <p>
-                <img src={logo} alt="logo" height={50} />
+                {/* <img src={logo} alt="logo" height={50} /> */}
+                <h1>🗑️ E-Waste</h1>
               </p>
 
               <h1>CERTIFICATE OF E-WASTE MANAGEMENT</h1>

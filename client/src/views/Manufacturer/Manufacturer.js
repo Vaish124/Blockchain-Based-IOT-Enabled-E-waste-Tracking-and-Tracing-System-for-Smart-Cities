@@ -37,8 +37,9 @@ const Manufacturer = () => {
   }, [search]);
 
   return (
-    <div>
+    <div className="mb-5">
       <Navbar />
+      <div className="manufacturer-container">
       <input
         type="text"
         value={search}
@@ -57,6 +58,7 @@ const Manufacturer = () => {
             _id={product._id}
           />
         ))}
+      </div>
       </div>
       <Footer />
     </div>

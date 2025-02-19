@@ -1,0 +1,55 @@
+.service-text{
+    text-align: center;
+    font-size: 40px;
+    border-bottom: double 4px black;
+    padding: 10px;
+   }
+   
+   .containers{
+       display: flex;
+       justify-content: center;
+       margin-top: 100px;
+     
+   }
+   
+   .feature-card{
+       width: 200px;
+       border: 1px solid #ccc;
+       align-items: center;
+       padding: 30px;
+       border-radius: 5px;
+       box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+       margin: 10px;
+       background: #fff;
+     }
+     
+     .feature-card:hover{
+       box-shadow: 0 0.5px 0.5px 0 #00ccff;
+     }
+   
+     .title{
+       text-align: center;
+       color:#002970;
+       font-size: 20px;
+       font-weight: 700;
+     }
+     
+     .img-manufacturer{
+       height: 80px;
+       display: block;
+       margin-left: auto;
+       margin-right: auto;
+     }
+   
+     .right-arrow{
+       height: 35px;
+       display: block;
+       margin: 0 auto;
+       cursor: pointer;
+     }
+     
+     .right-arrow:hover{
+       transform: translateX(5px);
+       transition: 0.3s;
+     }
+   

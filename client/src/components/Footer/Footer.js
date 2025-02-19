@@ -1,29 +1,49 @@
-import React from 'react'
-import './Footer.css'
-// import ImgGithub from './github.png'
-// import ImgGmail from './gmail.png'
-// import ImgLinkedin from './linkedin.png'
-
+import React from "react";
+import "./Footer.css"; // Importing the CSS file
 
 function Footer() {
-    return (
-        <div className='footer-container'>
-
-            <div className='text-footer text-center mb-3'>
-                Developed By <a>Vaibhavi</a>
-            </div>
-            <div>
-                <a href='https://github.com/vaishnavihole/balance-sheet' target="_blank">
-                </a>
-
-                <a href='mailto:vaishnavihole1@gmail.com' target="_blank">
-                </a>
-
-                <a href='https://www.linkedin.com/in/vaishnavihole/' target="_blank">
-                </a>
-            </div>
+  return (
+    <footer className="footer">
+      <div className="container">
+        <div className="footer-content">
+          <div className="footer-section">
+            <h2>E-WASTE MANAGEMENT SYSTEM</h2>
+            <p>
+              Together let's reduce the production of E-waste by recycling them.
+            </p>
+          </div>
+          <div className="footer-section">
+            <h3>QUICK LINKS</h3>
+            <ul>
+              <li>
+                <a href="#">Home</a>
+              </li>
+              <li>
+                <a href="#">Services</a>
+              </li>
+              <li>
+                <a href="#">Register</a>
+              </li>
+              <li>
+                <a href="#">Login</a>
+              </li>
+              <li>
+                <a href="#">Contact</a>
+              </li>
+              <li>
+                <a href="#">About</a>
+              </li>
+            </ul>
+          </div>
+          <div className="last-section footer-section">
+            <h3>CONTACT US</h3>
+            <p>Email: ewastemanagementsystem@gmail.com</p>
+            <p>Phone: +0123-345-6789</p>
+          </div>
         </div>
-    )
+      </div>
+    </footer>
+  );
 }
 
-export default Footer
+export default Footer;

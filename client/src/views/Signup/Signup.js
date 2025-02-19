@@ -1,196 +1,142 @@
-
 import React, { useState } from "react";
 import "./Signup.css";
-import showToast from "crunchy-toast";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 
-export default function SignUp() {
-  const [name, setName] = useState("");
+function Signup() {
+  const [firstname, setFirstname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [mobile, setMobile] = useState("");
   const [address, setAddress] = useState("");
-  const [gender, setGender] = useState("female");
-  const [roll, setRoll] = useState("");
+  let [roll, setRoll] = useState("");
 
-  const SignUpBtn = async () => {
-    if (!name) {
-      alert("name is required");
-      return;
-    }
-    if (!email) {
-      alert("email is required");
-      return;
-    }
-    if (!password) {
-      alert("password is required");
-      return;
-    }
-    if (!mobile) {
-      alert("mobile is required");
-      return;
-    }
-    if (!address) {
-      alert("address is required");
-      return;
-    }
-
-    const responce = await axios.post("/signup", {
-      name: name,
+  const signup = async () => {
+    const response = await axios.post("/signup", {
+      firstname: firstname,
       email: email,
       password: password,
       mobile: mobile,
       address: address,
-      gender: gender,
+      roll: roll,
     });
-
-    if (responce?.data?.success) {
-      showToast(responce.data.message, "success", 4000);
-      window.location.href = "/login";
+    if (response?.data?.success) {
+      alert(response?.data?.message);
+      window.location.href = "/";
     } else {
-      showToast(responce.data.message, "warning", 4000);
+      alert(response?.data?.message);
     }
-
-    setName("");
-    setEmail("");
-    setMobile("");
-    setPassword("");
-    setAddress("");
   };
-
   return (
-    <div>
-      <Navbar />
+    <>
+      <div>
+        <Navbar />
+        <form className="signup-form">
+          <h1 className="text-center">Signup</h1>
 
-      <form className="signup-form">
-        <h1 className="text-center">SignUp</h1>
+          <div>
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              placeholder="Enter your name"
+              id="name"
+              className="form-control"
+              value={firstname}
+              onChange={(e) => {
+                setFirstname(e.target.value);
+              }}
+            />
+          </div>
 
-        <div>
-          {/* <label htmlFor="name">Name</label> */}
-          <input
-            type="text"
-            placeholder="Enter Name"
-            id="name"
-            className="form-control"
-            value={name}
-            onChange={(e) => {
-              setName(e.target.value);
-            }}
-          />
-        </div>
+          <div>
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              placeholder="Enter your email"
+              id="email"
+              className="form-control"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+            />
+          </div>
 
-        <div>
-          {/* <label htmlFor="name">Email</label> */}
-          <input
-            type="email"
-            placeholder="Enter Email"
-            id="email"
-            className="form-control"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-        </div>
+          <div>
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              placeholder="Enter your password"
+              id="password"
+              className="form-control"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            />
+          </div>
 
-        <div>
-          {/* <label htmlFor="password">Password</label> */}
-          <input
-            type="password"
-            placeholder="Password"
-            id="password"
-            className="form-control"
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
-        </div>
+          <div>
+            <label htmlFor="mobile">Mobile</label>
+            <input
+              type="text"
+              placeholder="Enter your mobile"
+              id="mobile"
+              className="form-control"
+              value={mobile}
+              onChange={(e) => {
+                setMobile(e.target.value);
+              }}
+            />
+          </div>
 
-        <div>
-          {/* <label htmlFor="mobile">Mobile</label> */}
-          <input
-            type="text"
-            placeholder="Enter Mobile"
-            id="mobile"
-            className="form-control"
-            value={mobile}
-            onChange={(e) => {
-              setMobile(e.target.value);
-            }}
-          />
-        </div>
+          <div>
+            <label htmlFor="address">Address</label>
+            <input
+              type="text"
+              placeholder="Enter your address"
+              id="address"
+              className="form-control"
+              value={address}
+              onChange={(e) => {
+                setAddress(e.target.value);
+              }}
+            />
+          </div>
 
-        <div>
-          {/* <label htmlFor="address">Address</label> */}
-          <input
-            type="text"
-            placeholder="Address"
-            id="address"
-            className="form-control"
-            value={address}
-            onChange={(e) => {
-              setAddress(e.target.value);
-            }}
-          />
-        </div>
+          <div>
+            <label htmlFor="roll">Roll</label>
+            <select
+              className="form-control"
+              value={roll}
+              onChange={(e) => {
+                setRoll(e.target.value); // Corrected assignment
+              }}
+            >
+              <option value="Manufacturer">Manufacturer</option>
+              <option value="Manufacturer">Manufacturer</option>
+              <option value="Retailers">Retailers</option>
+              <option value="Consumers">Consumers</option>
+              <option value="Contractors">Contractors</option>
+            </select>
 
-        {/* <div className="radio-input">
-                <input type="radio"
-                    name="gender"
-                    checked={gender === "male"}
-                    onClick={() => {
-                        setGender('male')
-                    }}
-                /> Male
+            <button type="button" className="btn-signup " onClick={signup}>
+              Signup
+            </button>
 
-                <input type="radio"
-                    name="gender"
-                    checked={gender === "female"}
-                    onClick={() => {
-                        setGender('female')
-                    }}
-                /> Female
-
-            </div> */}
-
-        <div>
-          <label htmlFor="roll" className="roll">
-            Enter Your Roll
-          </label>
-          <select
-            className="form-control"
-            value={roll}
-            onChange={(e) => {
-              setRoll(e.target.value); // Corrected assignment
-            }}
-          >
-            <option value="Manufacturer">Manufacturer</option>
-            <option value="Manufacturer">Manufacturer</option>
-            <option value="Retailers">Retailers</option>
-            <option value="Consumers">Consumers</option>
-            <option value="Contractors">Contractors</option>
-          </select>
-        </div>
-
-        <button
-          type="button"
-          onClick={SignUpBtn}
-          className="bg-slate-950 hover:bg-blue-800 btn py-2 px-5 mt-4 rounded-lg text-xl block mx-auto"
-        >
-          SignUp
-        </button>
-        <br />
-
-        <Link to="/login" className="link">
-          {" "}
-          Already have an account ?
-        </Link>
-      </form>
-      <Footer />
-    </div>
+            <p className="text-right">
+              <Link to="/">Already have an account?Login</Link>
+            </p>
+          </div>
+        </form>
+      </div>
+      <div className="footer">
+        <Footer />
+      </div>
+    </>
   );
 }
+
+export default Signup;

@@ -35,11 +35,11 @@ function Home() {
               <Link to='/retailer'><img src={rightArrow} className='right-arrow' alt="arrow" /></Link>
             </div>
 
-            <div className='feature-card'>
+            {/* <div className='feature-card'>
               <img src={consumers} className="img-manufacturer" alt="consumers" />
               <h3 className='title'>Consumers</h3>
               <Link to='/consumer'><img src={rightArrow} className='right-arrow' alt="arrow" /></Link>
-            </div>
+            </div> */}
 
             <div className='feature-card'>
               <img src={contractors} className="img-manufacturer" alt="contractors" />
